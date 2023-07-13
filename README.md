@@ -1,1 +1,1 @@
-# Bingo-igreja
+Projeto para controlar o bingo da igreja.
