@@ -71,17 +71,17 @@ body:focus {
 }
 
 .strikeout.B {
-  background-color: #2ACAEA;
+  background-color: #fff000;
 }
 .strikeout.I {
-  background-color: #ff7cce;
+  background-color: #97ef41;
 }
 .strikeout.N {
-  background-color: #ffd966;
+  background-color: #db74fa;
 }
 .strikeout.G {
-  background-color: #bed630;
+  background-color: #4db5ff;
 }
 .strikeout.O {
-  background-color: #fb7d38;
+  background-color: #ff3f3f;
 }
