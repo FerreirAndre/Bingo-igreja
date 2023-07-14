@@ -3,6 +3,8 @@ body {
   padding: 0;
   padding-top: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  background-color: #cccece;
 }
 
 body:focus {
@@ -35,10 +37,11 @@ body:focus {
   align-items: center;
   border-radius: 20%;
   border: 1px solid black;
+  background-color: white;
 }
 
 .cell-format:hover {
-  background-color: #cccece;
+  background-color: white;
 }
 
 .letter-div {
@@ -54,8 +57,31 @@ body:focus {
 }
 
 .strikeout {
-  text-decoration: underline line-through;
-  text-decoration-thickness: 1.5px;
-  color: #a6a3a3;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: black;
   font-size: 22pt;
+}
+
+.letra {
+  font-size: 34pt;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.strikeout.B {
+  background-color: #2ACAEA;
+}
+.strikeout.I {
+  background-color: #ff7cce;
+}
+.strikeout.N {
+  background-color: #ffd966;
+}
+.strikeout.G {
+  background-color: #bed630;
+}
+.strikeout.O {
+  background-color: #fb7d38;
 }
