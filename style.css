@@ -77,11 +77,27 @@ body:focus {
   background-color: #97ef41;
 }
 .strikeout.N {
-  background-color: #db74fa;
+  background-color: #f59dcc;
 }
 .strikeout.G {
   background-color: #4db5ff;
 }
 .strikeout.O {
-  background-color: #ff3f3f;
+  background-color: #ffc06b;
+}
+
+.BB {
+  color: #fff000;
+}
+.II {
+  color: #97ef41;
+}
+.NN {
+  color: #f59dcc;
+}
+.GG {
+  color: #4db5ff;
+}
+.OO {
+  color: #ffc06b;
 }
