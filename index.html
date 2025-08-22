@@ -1,26 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bingo - Paróquia Santa Edwiges</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", sans-serif;
+        text-align: center;
+        background: url("./background.webp") no-repeat center center fixed;
+        background-size: cover;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bingo</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="index.js" defer></script>
-</head>
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.85);
+        z-index: -1;
+      }
 
-<body>
-  <div class="letter-div">
-    <table id="tblLetter">
-      <tr class="letters-bingo">
-        <td class="letters-bingo">PARÓQUIA SANTA EDWIGES</td>
-      </tr>
+      header {
+        padding: 20px;
+        font-size: 2.5rem;
+        font-family: "Georgia", cursive, serif;
+        color: #2c3e50;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 5px;
+      }
+
+      .letter {
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding-right: 15px;
+      }
+
+      button {
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 8px;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        background: #dcdcdc; /* cinza claro padrão */
+        color: #333;
+      }
+
+      button.clicked {
+        color: #fff;
+        transform: scale(1.1);
+      }
+
+      /* cores quando clicado */
+      .linha1 button.clicked {
+        background: #f39c12;
+      } /* Laranja */
+      .linha2 button.clicked {
+        background: #27ae60;
+      } /* Verde */
+      .linha3 button.clicked {
+        background: #2980b9;
+      } /* Azul */
+      .linha4 button.clicked {
+        background: #8e44ad;
+      } /* Roxo */
+      .linha5 button.clicked {
+        background: #e74c3c;
+      } /* Vermelho */
+
+      #reset-btn {
+        width: 150px;
+        margin: 20px;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 10px;
+        background: #34495e;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #reset-btn:hover {
+        background: #2c3e50;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <header>PARÓQUIA SANTA EDWIGES</header>
+
+    <table>
+      <tbody id="bingo-table"></tbody>
     </table>
-  </div>
 
-  <div class="container">
-    <table id="tblBingo"></table>
-  </div>
-</body>
+    <button id="reset-btn">Resetar Bingo</button>
 
+    <script>
+      const table = document.getElementById("bingo-table");
+      const letters = ["B", "I", "N", "G", "O"];
+      let number = 1;
+
+      for (let i = 0; i < 5; i++) {
+        const row = document.createElement("tr");
+        row.classList.add("linha" + (i + 1));
+
+        // letra
+        const letterCell = document.createElement("td");
+        letterCell.classList.add("letter");
+        letterCell.textContent = letters[i];
+        row.appendChild(letterCell);
+
+        // números
+        for (let j = 0; j < 15; j++) {
+          if (number <= 75) {
+            const cell = document.createElement("td");
+            const btn = document.createElement("button");
+            btn.textContent = number;
+            btn.addEventListener("click", () => {
+              btn.classList.toggle("clicked");
+            });
+            cell.appendChild(btn);
+            row.appendChild(cell);
+            number++;
+          }
+        }
+
+        table.appendChild(row);
+      }
+
+      // Botão reset
+      document.getElementById("reset-btn").addEventListener("click", () => {
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((btn) => {
+          if (btn.id !== "reset-btn") {
+            btn.classList.remove("clicked");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
